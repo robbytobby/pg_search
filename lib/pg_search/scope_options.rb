@@ -20,7 +20,7 @@ module PgSearch
     end
 
     def to_relation
-      @model.select("#{quoted_table_name}.*, (#{rank}) AS pg_search_rank").where(conditions).order("pg_search_rank DESC, #{order_within_rank}").joins(joins)
+      @model.select("#{quoted_table_name}.*, (#{rank}) AS pg_search_rank").where(conditions).joins(joins)
     end
 
     private
